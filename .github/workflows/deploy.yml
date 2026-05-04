@@ -27,6 +27,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ctf_ml
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -45,7 +48,7 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           # Upload dist folder
-          path: './dist'
+          path: './ctf_ml/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
