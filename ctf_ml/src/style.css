@@ -58,7 +58,6 @@
   h1, h2, h3, h4 {
     font-weight: 700;
     letter-spacing: -0.025em;
-    text-transform: uppercase;
   }
 
   /* 2. Конкретні розміри та адаптивність для КОЖНОГО тегу */
@@ -78,5 +77,16 @@
   p {
     /* Звичайний текст: 16px на мобільному, 18px на ПК, не надто широкий */
     @apply text-base md:text-lg max-w-prose opacity-80 leading-relaxed;
+  }
+
+  /* Створюємо саму анімацію */
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Клас для курсора */
+  .terminal-cursor {
+    animation: blink 1s step-end infinite;
   }
 }
