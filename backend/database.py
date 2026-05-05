@@ -6,8 +6,7 @@ from dotenv import load_dotenv
 # Завантажуємо змінні з .env файлу
 load_dotenv()
 
-# Отримуємо URL з середовища БЕЗ хардкоду паролів у коді.
-# Якщо змінної немає, програма видасть помилку при старті — це надійніше.
+# Отримуємо URL з середовища
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not SQLALCHEMY_DATABASE_URL:
@@ -15,14 +14,19 @@ if not SQLALCHEMY_DATABASE_URL:
         "DATABASE_URL is not set. Please add it to your .env file or environment variables."
     )
 
-# Запобіжник для сумісності SQLAlchemy з деякими хмарними URL (наприклад, Render/Heroku)
-# Вони часто видають 'postgres://', але драйвер psycopg2 вимагає 'postgresql://'
+# Запобіжник для сумісності з форматом postgres://
 if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
     SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-# Створюємо двигун.
-# Для PostgreSQL (особливо в хмарі Neon) важливо використовувати правильний драйвер.
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+# Створюємо двигун з оптимізацією для serverless баз (Neon)
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL,
+    # pool_pre_ping змушує SQLAlchemy перевіряти з'єднання перед запитом
+    # Це виправить помилку "SSL connection has been closed unexpectedly"
+    pool_pre_ping=True,
+    # pool_recycle оновлює з'єднання кожні 5 хвилин (300 секунд)
+    pool_recycle=300,
+)
 
 # Створюємо фабрику сесій
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
