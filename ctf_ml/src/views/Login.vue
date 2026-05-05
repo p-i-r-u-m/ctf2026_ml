@@ -14,13 +14,15 @@ const handleLogin = async () => {
   errorMessage.value = '' // Очищуємо стару помилку
 
   try {
-    const formData = new FormData()
-    formData.append('username', login.value) // FastAPI хоче саме 'username'
-    formData.append('password', password.value)
+    // 1. ЗМІНА: Використовуємо URLSearchParams замість FormData
+    const formBody = new URLSearchParams()
+    formBody.append('username', login.value) 
+    formBody.append('password', password.value)
 
     const response = await fetch('https://ctf2026-ml.onrender.com/login', {
       method: 'POST',
-      body: formData,
+      // 2. ЗМІНА: Відправляємо formBody
+      body: formBody,
     })
 
     if (!response.ok) {
