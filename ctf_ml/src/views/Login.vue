@@ -35,7 +35,7 @@ const handleLogin = async () => {
     localStorage.setItem('access_token', data.access_token)
 
     console.log('Success! Token saved.')
-    router.push('/dashboard') // Перенаправляємо на головну сторінку CTF
+    router.push('/content_resp') // Перенаправляємо на головну сторінку CTF
 
   } catch (err: any) {
     errorMessage.value = err.message
@@ -49,11 +49,11 @@ const handleLogin = async () => {
       <RouterLink to="/" class="transition-opacity hover:opacity-70 active:scale-95">
         <img :src="logo" alt="Logo" class="h-8 md:h-10 w-auto" />
       </RouterLink>
-      <p class="font-mono text-xs opacity-40 uppercase tracking-widest">System Access</p>
+      <p>Content Responsible</p>
     </header>
 
     <main class="grow">
-      <h2 class="font-mono text-center pb-32pt text-xl uppercase tracking-tighter">Enter Credentials</h2>
+      <h2 class="font-mono text-center pb-32pt">Welcome</h2>
 
       <!-- Оновлена форма -->
       <form @submit.prevent="handleLogin" class="flex flex-col gap-16pt w-full md:w-1/3 mx-auto">
