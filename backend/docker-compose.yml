@@ -1,0 +1,29 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Передаємо URL бази даних як змінну оточення
+      - DATABASE_URL=postgresql://admin:supersecret@db:5432/auth_system
+    depends_on:
+      - db
+    # Для зручності розробки: монтуємо локальний код у контейнер
+    volumes:
+      - .:/app
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: supersecret
+      POSTGRES_DB: auth_system
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  # Іменований том, щоб база не "обнулялася" при перезапуску
+  pgdata:

@@ -18,7 +18,7 @@ import Footer from '../components/Footer.vue'
       <h2 class="font-mono">
         Motivation letter
       </h2>
-      <h1 class="font-mono pb-16pt">
+      <h1 class="font-mono pb-16pt md:pb-32pt">
         Ivan Hrushevskyi
       </h1>
 

@@ -21,7 +21,7 @@ const handleLogin = () => {
     </header>
 
     <main class="grow">
-      <h2 class="font-mono text-center">Welcome!</h2>
+      <h2 class="font-mono text-center pb-32pt">Welcome!</h2>
 
       <form @submit.prevent="handleLogin" class="flex flex-col gap-16pt w-full md:w-1/3 mx-auto">
         <!-- Поле логіну -->
