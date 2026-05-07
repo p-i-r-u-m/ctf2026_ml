@@ -18,13 +18,13 @@ const router = createRouter({
     ],
     // Додай цей блок:
     // Зміни рядок 20 на цей:
-scrollBehavior(_to, _from, savedPosition) { 
-    if (savedPosition) {
-        return savedPosition
-    } else {
-        return { top: 0, behavior: 'smooth' }
+    scrollBehavior(_to, _from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { top: 0, behavior: 'smooth' }
+        }
     }
-}
 })
 
 // Новий синтаксис: повертаємо значення замість виклику next()

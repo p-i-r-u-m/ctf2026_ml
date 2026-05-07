@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import logo from "../assets/logo.svg";
 import Footer from "../components/Footer.vue";
 import Button from '../components/Button.vue'
@@ -389,8 +389,7 @@ onMounted(() => {
             <span class="font-mono text-xs">IBM Cloud Computing</span>
             <span class="text-ui-accent opacity-0 group-hover:opacity-100">-></span>
           </a>
-          <a href="https://drive.google.com/file/d/1d5ca_ZKdVuJ6aH_3dezieV5jIY0SE5nI/view?usp=sharing"
-            target="_blank"
+          <a href="https://drive.google.com/file/d/1d5ca_ZKdVuJ6aH_3dezieV5jIY0SE5nI/view?usp=sharing" target="_blank"
             class="flex-1 border border-ui-white/10 p-12pt hover:border-ui-accent transition-colors flex justify-between items-center group">
             <span class="font-mono text-xs">Docker Fundamentals</span>
             <span class="text-ui-accent opacity-0 group-hover:opacity-100">-></span>

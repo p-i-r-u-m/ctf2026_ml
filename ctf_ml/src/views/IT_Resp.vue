@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import logo from "../assets/logo.svg";
 import Footer from "../components/Footer.vue";
 import Button from '../components/Button.vue'
