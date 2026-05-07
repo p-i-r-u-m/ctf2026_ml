@@ -17,15 +17,14 @@ const router = createRouter({
         }
     ],
     // Додай цей блок:
-    scrollBehavior(to, from, savedPosition) {
-        // Якщо є збережена позиція (наприклад, при натисканні "Назад"), повертаємо її
-        if (savedPosition) {
-            return savedPosition
-        } else {
-            // У всіх інших випадках — скролимо в самий верх
-            return { top: 0, behavior: 'smooth' } // smooth додасть приємну анімацію
-        }
-    },
+    // Зміни рядок 20 на цей:
+scrollBehavior(_to, _from, savedPosition) { 
+    if (savedPosition) {
+        return savedPosition
+    } else {
+        return { top: 0, behavior: 'smooth' }
+    }
+}
 })
 
 // Новий синтаксис: повертаємо значення замість виклику next()

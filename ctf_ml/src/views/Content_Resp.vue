@@ -4,7 +4,6 @@ import logo from "../assets/logo.svg";
 import Footer from "../components/Footer.vue";
 import Button from '../components/Button.vue'
 
-const sections = ref<HTMLElement[]>([]);
 
 onMounted(() => {
   const observer = new IntersectionObserver((entries) => {
