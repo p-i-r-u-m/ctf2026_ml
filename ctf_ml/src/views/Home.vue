@@ -24,7 +24,7 @@ import Footer from '../components/Footer.vue'
 
       <div class="flex gap-8pt">
         <Button to="/login">Content Responsible</Button>
-        <Button>IT Responsible</Button>
+        <Button to="/it_resp">IT Responsible</Button>
       </div>
 
     </main>

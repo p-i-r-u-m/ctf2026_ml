@@ -2,18 +2,30 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './views/Home.vue'
 import LoginPage from './views/Login.vue'
 import ContentPage from './views/Content_Resp.vue'
+import ITPage from './views/IT_Resp.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [
         { path: '/', component: Home },
+        { path: '/it_resp', component: ITPage },
         { path: '/login', component: LoginPage },
         {
             path: '/content_resp',
             component: ContentPage,
             meta: { requiresAuth: true }
         }
-    ]
+    ],
+    // Додай цей блок:
+    scrollBehavior(to, from, savedPosition) {
+        // Якщо є збережена позиція (наприклад, при натисканні "Назад"), повертаємо її
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            // У всіх інших випадках — скролимо в самий верх
+            return { top: 0, behavior: 'smooth' } // smooth додасть приємну анімацію
+        }
+    },
 })
 
 // Новий синтаксис: повертаємо значення замість виклику next()

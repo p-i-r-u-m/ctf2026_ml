@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-const commands = ['ls -la', 'cat motivation.txt', 'whoami', 'clear', './deploy.sh'];
+const commands = ['ls -la', 'cat motivation.txt', 'whoami', 'clear', 'CTF(main_organizer)', './deploy.sh'];
 const displayText = ref('');
 const commandIndex = ref(0);
 const isDeleting = ref(false);

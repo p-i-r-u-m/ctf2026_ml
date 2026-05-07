@@ -14,24 +14,38 @@
   --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", "Ubuntu Mono", "Liberation Mono", Menlo, Consolas, monospace;
 
   /* Базова сітка (Small) */
-  --spacing-8pt: 0.5rem;   /* 8px */
-  --spacing-16pt: 1rem;    /* 16px */
-  --spacing-24pt: 1.5rem;  /* 24px */
-  --spacing-32pt: 2rem;    /* 32px */
+  --spacing-8pt: 0.5rem;
+  /* 8px */
+  --spacing-16pt: 1rem;
+  /* 16px */
+  --spacing-24pt: 1.5rem;
+  /* 24px */
+  --spacing-32pt: 2rem;
+  /* 32px */
 
   /* Середні відступи (Medium) */
-  --spacing-40pt: 2.5rem;  /* 40px */
-  --spacing-48pt: 3rem;    /* 48px */
-  --spacing-64pt: 4rem;    /* 64px (твої 65px для точності сітки) */
-  --spacing-80pt: 5rem;    /* 80px */
+  --spacing-40pt: 2.5rem;
+  /* 40px */
+  --spacing-48pt: 3rem;
+  /* 48px */
+  --spacing-64pt: 4rem;
+  /* 64px (твої 65px для точності сітки) */
+  --spacing-80pt: 5rem;
+  /* 80px */
 
   /* Великі відступи (Large) для секцій та макетів */
-  --spacing-96pt: 6rem;    /* 96px */
-  --spacing-128pt: 8rem;   /* 128px */
-  --spacing-160pt: 10rem;  /* 160px */
-  --spacing-256pt: 16rem;  /* 256px */
-  --spacing-384pt: 24rem;  /* 384px */
-  --spacing-512pt: 32rem;  /* 512px */
+  --spacing-96pt: 6rem;
+  /* 96px */
+  --spacing-128pt: 8rem;
+  /* 128px */
+  --spacing-160pt: 10rem;
+  /* 160px */
+  --spacing-256pt: 16rem;
+  /* 256px */
+  --spacing-384pt: 24rem;
+  /* 384px */
+  --spacing-512pt: 32rem;
+  /* 512px */
 }
 
 @layer base {
@@ -55,7 +69,10 @@
   }
 
   /* 1. Загальні правила для всіх заголовків (Швейцарський стиль) */
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-weight: 700;
     letter-spacing: -0.025em;
   }
@@ -81,12 +98,32 @@
 
   /* Створюємо саму анімацію */
   @keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
+
+    from,
+    to {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
   }
 
   /* Клас для курсора */
   .terminal-cursor {
     animation: blink 1s step-end infinite;
+  }
+
+  /* Початковий стан: приховано та трохи зміщено вниз */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  /* Стан після появи на екрані */
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
