@@ -208,7 +208,7 @@ onMounted(() => {
                         <div
                             class="absolute top-0 right-0 p-4pt font-mono text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-ui-accent transition-opacity">
 
-                            [PDF]
+                            [LINK]
 
                         </div>
 
